@@ -1,61 +1,111 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-
+import type { Meta, StoryObj } from '@storybook/react-vite'; 
 import { fn } from 'storybook/test';
+import Button from '../components/Button';
+import ArrowLeftIcon from '../icons/ArrowLeftIcon';
+import ArrowRightIcon from '../icons/ArrowRightIcon';
+import ArrowUpIcon from '../icons/ArrowUpIcon';
 
-import { Button } from './Button';
+const icons = { ArrowLeftIcon, ArrowRightIcon, ArrowUpIcon };
+const types = { button: 'button', submit: 'submit', reset: 'reset'};
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+const ActionsData = {
+  label: 'Button',
+  onClick: fn(),
+}
+
 const meta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered',
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  tags: ['autodocs', 'dev'],
   argTypes: {
-    backgroundColor: { control: 'color' },
+    type: {
+      description: 'Define the button type. The options are: <code>button</code>, <code>submit</code> and <code>reset</code>',
+      mapping: types,
+      options: Object.keys(types),
+      control: {
+        type: 'select',
+        labels: {
+          button: 'button',
+          submit: 'submit',
+          reset: 'reset'
+        }
+      }
+    },
+    label: {
+      description: 'Defines the main text that will be displayed inside the button.',
+      // table: {
+      //   disable: true
+      // }
+    },
+    variant: {
+      description: "Define the visual importance of the button. The options are: <code>primary</code>, <code>secondary</code> and <code>tertiary</code>."
+    },
+    size: {
+      control: { type: 'radio' },
+      description: 'Define the button size. The options are: <code>xl</code>, <code>lg</code>, <code>md</code>, <code>sm</code> and <code>xs</code>',
+    },
+    startIcon: {
+      description: 'Receives an icon component (e.g., Lucide, Material Icons) to be rendered before the text (on the left).',
+      mapping: icons,
+      options: Object.keys(icons),
+      control: {
+        type: 'select',
+        labels: {
+          ArrowLeftIcon: 'ArrowLeftIcon',
+          ArrowRightIcon: 'ArrowRightIcon',
+          ArrowUpIcon: 'ArrowUpIcon'
+        }
+      }
+    },
+    endIcon: {
+      description: 'Receives an icon component (e.g., Lucide, Material Icons) to be rendered after the text (on the right).',
+      mapping: icons,
+      options: Object.keys(icons),
+      control: {
+        type: 'select',
+        labels: {
+          ArrowLeftIcon: 'ArrowLeftIcon',
+          ArrowRightIcon: 'ArrowRightIcon',
+          ArrowUpIcon: 'ArrowUpIcon'
+        }
+      }
+    },
+    iconProps: {
+      description: 'An object containing properties that will be passed to the icon components (e.g., size, color, strokeWidth), allowing you to customize the icons without changing the button.',
+      control: false
+    },
+    onClick: {
+      description: 'It performs a function when the button is clicked.'
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      description: 'Disabled the button.'
+    },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
-  args: { onClick: fn() },
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: 'This is a button component.',
+        label: 'Olá'
+      }
+    }
+  },
+  args: {
+    ...ActionsData
+  }
 } satisfies Meta<typeof Button>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
-};
+export const SimpleButton: Story = {};
 
-export const Secondary: Story = {
-  args: {
-    label: 'Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
-};
-
-export const Teste: Story = {
-  args: {
-    primary: false,
-    label: "Button"
-  }
-};
+// export const Primary: Story = {
+//   args: {
+//     label: 'Button',
+//     variant: 'primary',
+//     startIcon: ArrowLeftIcon
+//   }
+// }
