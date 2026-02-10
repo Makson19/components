@@ -12,17 +12,22 @@ code {
 
 :root {
   --white: #FFF;
+  --red: #D8201D;
+  --green: #1D8C1D;
   --gray-400: #959595;
+  --gray-200: #EAECF0;
   --gray-100: #EAEAEA;
 
   /* --- black pallete --- */
   --black-900: #131927;
   --black-800: #424752;
+  --black-750: #484848;
   --black-700: #5A5E68;
   --black-600: #71757D;
   --black-500: #898C93;
   --black-400: #A1A3A9;
   --black-300: #B8BABE;
+  --black-250: #C0C0C0;
   --black-200: #D0D1D4;
   --black-100: #E7E8E9;
 

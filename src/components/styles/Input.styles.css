@@ -1,0 +1,104 @@
+.ft-input-container {
+  display: flex;
+}
+
+.ft-input-container.label-pos-top {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ft-input-container.label-pos-left {
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.ft-input-container > .ft-input-label {
+  color: var(--black-750);
+  font-size: 12px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.ft-input-container > .ft-input-wrapper {
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--black-250);
+  border-radius: 8px;
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  min-height: 40px;
+  max-height: 40px;
+  padding-inline: 12px;
+}
+
+.ft-input-container > .ft-input-wrapper:hover {
+  border-color: var(--gray-400);
+}
+
+.ft-input-container > .ft-input-wrapper:focus-within {
+  border-color: var(--blue-600);
+}
+
+.ft-input-container > .ft-input-wrapper > .ft-input-icon {
+  height: 22px;
+  width: 22px;
+}
+
+.ft-input-container > .ft-input-wrapper > .ft-input-icon > svg, img {
+  height: 100%;
+  width: 100%;
+}
+
+.ft-input-container > .ft-input-wrapper > .ft-input-element {
+  background: transparent;
+  border: none;
+  color: var(--black-750);
+  font-size: 14px;
+  flex: 1;
+  padding-block: 8px;
+}
+
+.ft-input-container > .ft-input-wrapper > .ft-input-element:focus {
+  outline: none;
+}
+
+.ft-input-container.ft-input-error-state > .ft-input-wrapper {
+  border-color: var(--red);
+}
+
+
+/* STANDARD */
+.ft-input-container.var-standard > .ft-input-wrapper {
+  border: none;
+  border-bottom: 1px solid var(--black-250);
+  border-radius: 0;
+}
+
+.ft-input-container.var-standard > .ft-input-wrapper:focus-within {
+  border-color: var(--blue-600);
+}
+
+.ft-input-container.var-standard.ft-input-error-state > .ft-input-wrapper {
+  border-color: var(--red);
+}
+
+
+/* DISABLED */
+.ft-input-container.ft-input-disabled > .ft-input-wrapper {
+  background: var(--gray-200);
+}
+
+.ft-input-container.ft-input-disabled > .ft-input-wrapper:hover {
+  border-color: var(--black-250);
+}
+
+
+/* MESSAGE ERROR */
+.ft-input-error {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 4px;
+}
