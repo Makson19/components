@@ -45,10 +45,12 @@ const meta = {
       description: 'Defines the visual style of the input: with a full border (<code>outlined</code>) or a simplified style (<code>standard</code>).'
     },
     inputProps: {
-      description: "Accepts all <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes' target='_blank' rel='noopener noreferrer'>Native properties</a> of an HTML <code>input</code> (e.g. <code>placeholder</code>, <code>type</code>, <code>onChange</code>, <code>disabled</code>)."
+      description: "Accepts all <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#attributes' target='_blank' rel='noopener noreferrer'>Native properties</a> of an HTML <code>input</code> (e.g. <code>placeholder</code>, <code>type</code>, <code>onChange</code>, <code>disabled</code>).",
+      control: false
     },
     meta: {
-      description: 'An object typically sourced from form libraries (such as Formik or React Final Form) to manage validation and error states.'
+      description: 'An object typically sourced from form libraries (such as Formik or React Final Form) to manage validation and error states.',
+      control: false
     }
   }
 } satisfies Meta<typeof Input>;

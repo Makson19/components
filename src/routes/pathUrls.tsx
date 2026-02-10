@@ -1,5 +1,6 @@
 import ButtonPage from "../pages/ButtonPage";
 import InputPage from "../pages/InputPage";
+import SelectPage from "../pages/SelectPage";
 
 export const routes = [
   {
@@ -9,5 +10,9 @@ export const routes = [
   {
     path: '/input',
     element: <InputPage />
+  },
+  {
+    path: '/select',
+    element: <SelectPage />
   }
 ]
