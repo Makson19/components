@@ -1,0 +1,51 @@
+.ft-autocomplete-container {
+  display: flex;
+  gap: 8px;
+}
+
+.ft-autocomplete-container.label-pos-top {
+  flex-direction: column;
+}
+
+.ft-autocomplete-container.label-pos-left {
+  align-items: center;
+  flex-direction: row;
+}
+
+.ft-autocomplete-container > .ft-autocomplete-label {
+  color: var(--black-750);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.ft-autocomplete-container > .ft-input-wrapper {
+  flex: 1;
+}
+
+.ft-autocomplete-container > .ft-input-wrapper .MuiInputBase-root {
+  height: 40px;
+  padding: 8px 12px;
+}
+
+.ft-autocomplete-container > .ft-input-wrapper .MuiInputBase-root > .MuiInputBase-input {
+  color: var();
+  font-size: 14px;
+  padding: 0;
+}
+
+.ft-autocomplete-container > .ft-input-wrapper .MuiInputBase-root > fieldset {
+  border: 1px solid var(--black-250);
+  border-radius: 8px;
+}
+
+.ft-autocomplete-container > .ft-input-wrapper .MuiInputBase-root:hover > fieldset {
+  border-color: var(--gray-400);
+  /* border-color: red; */
+}
+
+.ft-autocomplete-container > .ft-input-wrapper .MuiInputBase-root:focus-within > fieldset {
+  border-color: var(--gray-400);
+  /* border-color: red; */
+}
+
