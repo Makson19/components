@@ -41,11 +41,41 @@
 
 .ft-autocomplete-container > .ft-input-wrapper .MuiInputBase-root:hover > fieldset {
   border-color: var(--gray-400);
-  /* border-color: red; */
 }
 
 .ft-autocomplete-container > .ft-input-wrapper .MuiInputBase-root:focus-within > fieldset {
   border-color: var(--gray-400);
-  /* border-color: red; */
 }
 
+
+.ft-autocomplete-container.ft-input-disabled > .ft-input-wrapper .MuiInputBase-root {
+  background: var(--gray-200);
+}
+
+.ft-autocomplete-container.ft-input-disabled > .ft-input-wrapper .MuiInputBase-root:hover > fieldset {
+  border-color: var(--black-250);
+}
+
+
+.ft-autocomplete-container .ft-input-container {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.ft-autocomplete-container .ft-input-container > .ft-btn-clear {
+  height: 24px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 24px;
+}
+
+
+.ft-input-error {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 4px;
+}
