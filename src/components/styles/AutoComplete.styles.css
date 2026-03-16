@@ -24,12 +24,13 @@
 }
 
 .ft-autocomplete-container > .ft-input-wrapper .MuiInputBase-root {
+  background: var(--white);
+  border-radius: 8px;
   height: 40px;
   padding: 8px 12px;
 }
 
 .ft-autocomplete-container > .ft-input-wrapper .MuiInputBase-root > .MuiInputBase-input {
-  color: var();
   font-size: 14px;
   padding: 0;
 }
@@ -72,6 +73,9 @@
   width: 24px;
 }
 
+.ft-autocomplete-container.ft-autocomplete-error-state > .ft-input-wrapper .MuiInputBase-root > fieldset {
+  border-color: var(--red);
+}
 
 .ft-input-error {
   color: var(--red);

@@ -8,16 +8,16 @@ interface IAutoCompleteProps {
   labelPosition?: 'top' | 'left';
   options: { value: number | string, label: string }[];
   freeSolo?: boolean;
-  placeholder?: string;
   inputProps?: {
-    id: string,
-    value: string,
-    onChange: (e: string) => void,
+    id?: string,
+    placeholder?: string;
+    value?: string,
+    onChange?: (e: string) => void,
     maxLength?: number
   };
   autoCompleteProps?: {
-    value: any,
-    onChange: (_: unknown, value: any) => void,
+    value?: any,
+    onChange?: (_: unknown, value: any) => void,
     onBlur?: (e?: React.FocusEvent<HTMLInputElement>) => void,
     onFocus?: () => void,
     loading?: boolean
@@ -38,7 +38,6 @@ const AutoComplete = (props: IAutoCompleteProps) => {
     freeSolo,
     inputProps,
     meta,
-    placeholder,
     autoCompleteProps,
     fetchOptions,
     inputFormatFunction,
@@ -64,7 +63,7 @@ const AutoComplete = (props: IAutoCompleteProps) => {
         className={
           'ft-autocomplete-container' +
           ` label-pos-${labelPosition}` +
-          ` ${hasError ? 'ft-input-error-state' : ''}` +
+          ` ${hasError ? 'ft-autocomplete-error-state' : ''}` +
           ` ${disabled ? 'ft-input-disabled' : ''}`
         }
       >
@@ -112,7 +111,7 @@ const AutoComplete = (props: IAutoCompleteProps) => {
                   <TextField
                     {...params}
                     inputRef={inputRef}
-                    placeholder={placeholder}
+                    placeholder={inputProps?.placeholder}
                     slotProps={{
                       htmlInput: {
                         ...params?.inputProps,

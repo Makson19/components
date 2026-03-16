@@ -76,10 +76,10 @@ const AutoCompletePage = () => {
           freeSolo
           label='Personagem'
           options={options}
-          placeholder='Selecione...'
           fetchOptions={fetchCharacter}
           inputProps={{
             id: 'character',
+            placeholder: 'Selecione...',
             value: inputValue,
             onChange: (e: string) => {
               console.log('e', e)
@@ -116,11 +116,11 @@ const AutoCompletePage = () => {
                         freeSolo
                         label='Label'
                         options={options}
-                        placeholder='Selecione...'
                         fetchOptions={fetchCharacter}
                         inputProps={{
                           ...input,
                           id: 'auto-1',
+                          placeholder: 'Selecione...'
                         }}
                         autoCompleteProps={{
                           // onFocus: () => fetchCharacter(),
