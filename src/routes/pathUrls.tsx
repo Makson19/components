@@ -2,6 +2,7 @@ import AutoCompletePage from "../pages/AutoCompletePage";
 import ButtonPage from "../pages/ButtonPage";
 import InputPage from "../pages/InputPage";
 import SelectPage from "../pages/SelectPage";
+import LoadingPage from "../pages/LoadingPage";
 
 export const routes = [
   {
@@ -19,5 +20,9 @@ export const routes = [
   {
     path: '/autocomplete',
     element: <AutoCompletePage />
+  },
+  {
+    path: '/loading',
+    element: <LoadingPage />
   }
 ]
