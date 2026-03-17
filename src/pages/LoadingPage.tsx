@@ -11,8 +11,16 @@ const LoadingPage = () => {
 
       <div className='section-container'>
         <Loading
+          color='black'
+          size={16}
+          thickness={2}
+        />
+      </div>
+
+      <div className='section-container'>
+        <Loading
           variant='linear'
-          color='red'
+          color='pink'
           thickness={8}
         />
       </div>
