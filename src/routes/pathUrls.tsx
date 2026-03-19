@@ -4,6 +4,7 @@ import InputPage from "../pages/InputPage";
 import SelectPage from "../pages/SelectPage";
 import LoadingPage from "../pages/LoadingPage";
 import StepPage from "../pages/StepPage";
+import TabsPage from "../pages/TabsPage";
 
 export const routes = [
   {
@@ -29,5 +30,9 @@ export const routes = [
   {
     path: '/step',
     element: <StepPage />
+  },
+  {
+    path: '/tabs',
+    element: <TabsPage />
   }
 ]
