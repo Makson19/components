@@ -5,6 +5,7 @@ import SelectPage from "../pages/SelectPage";
 import LoadingPage from "../pages/LoadingPage";
 import StepPage from "../pages/StepPage";
 import TabsPage from "../pages/TabsPage";
+import TablePage from "../pages/TablePage";
 
 export const routes = [
   {
@@ -34,5 +35,9 @@ export const routes = [
   {
     path: '/tabs',
     element: <TabsPage />
+  },
+  {
+    path: '/table',
+    element: <TablePage />
   }
 ]
