@@ -34,6 +34,38 @@ const TableCss = styled(MuiTable)(() => ({
     }
   },
 
+  // sticky first column
+  '&.sticky-first-col > .ft-table-head > .ft-table-row > .ft-table-cell:first-of-type': {
+    // background: 'rgb(236, 239, 241)',
+    background: '#f5f5f5',
+    position: 'sticky',
+    left: 0,
+    zIndex: 3
+  },
+
+  '&.sticky-first-col > .ft-table-body > .ft-table-row > .ft-table-cell:first-of-type': {
+    // background: 'rgb(236, 239, 241)',
+    background: '#f5f5f5',
+    position: 'sticky',
+    left: 0,
+    zIndex: 2
+  },
+
+  // sticky last column
+  '&.sticky-last-col > .ft-table-head > .ft-table-row > .ft-table-cell:last-of-type': {
+    background: '#f5f5f5',
+    position: 'sticky',
+    right: 0,
+    zIndex: 3,
+  },
+
+  '&.sticky-last-col > .ft-table-body > .ft-table-row > .ft-table-cell:last-of-type': {
+    background: '#f5f5f5',
+    position: 'sticky',
+    right: 0,
+    zIndex: 2,
+  },
+
   '& .ft-table-head': {
     background: '#f5f5f5',
   },
@@ -127,12 +159,21 @@ export const TableContainer = (props: TableContainerProps) => {
 }
 
 
-interface ITableProps extends TableProps { }
+interface ITableProps extends TableProps {
+  stickyFirstColumn?: boolean;
+  stickyLastColumn?: boolean;
+}
 
 export const Table = (props: ITableProps) => {
-  const { children, ...rest } = props;
+  const { children, stickyFirstColumn, stickyLastColumn, ...rest } = props;
   return (
-    <TableCss {...rest}>
+    <TableCss
+      {...rest}
+      className={
+        (stickyFirstColumn ? ' sticky-first-col' : '') +
+        (stickyLastColumn ? ' sticky-last-col' : '')
+      }
+    >
       {children}
     </TableCss>
   )
