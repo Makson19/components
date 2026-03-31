@@ -88,6 +88,38 @@ function InputPage() {
           meta={{ touched: isTouched, error: error }}
         />
       </div>
+
+      <div className='section-container'>
+        <Input
+          label='Label'
+          inputProps={{
+            id: 'input-6',
+            placeholder: 'Input...',
+            type: 'datetime-local',
+            onChange: (e) => {
+              console.log(e.target.value)
+              const date = new Date(e.target.value);
+              console.log('date', date)
+            }
+          }}
+        />
+      </div>
+
+      <div className='section-container'>
+        <Input
+          label='Label'
+          inputProps={{
+            id: 'input-6',
+            placeholder: 'Input...',
+            type: 'time',
+            onChange: (e) => {
+              console.log(e.target.value)
+              const date = new Date(e.target.value);
+              console.log('date', date)
+            }
+          }}
+        />
+      </div>
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import { isValid } from "date-fns";
 
 interface PaginationResult<T> {
   data: T[];
@@ -31,3 +32,11 @@ export function paginate<T>(
     totalPages,
   };
 }
+
+export const validateDate = (date: Date | null) => {
+  if (!date) return 'Campo obrigatório';
+
+  if (!isValid(date)) return 'Data inválida';
+
+  return undefined;
+};
