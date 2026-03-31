@@ -39,7 +39,12 @@ const DateTimePickerContainer = styled('div')(() => ({
             height: '40px',
 
             '& .MuiPickersSectionList-root': {
-              textTransform: 'lowercase'
+              textTransform: 'lowercase',
+              zIndex: 2,
+              
+              '& *': {
+                color: '#484848 !important',
+              }
             },
 
             '& fieldset': {
@@ -96,8 +101,65 @@ const DateTimePickerContainer = styled('div')(() => ({
 
     '&.ft-datepicker-error-state > .ft-datepicker > .ft-datepicker-wrapper > .datepicker fieldset': {
       borderColor: '#D8201D'
-    }
+    },
   },
+
+  // STANDARD VARIANT
+  '& .ft-datepicker-container.variant-standard': {
+    '& .ft-datepicker': {
+      '& .ft-datepicker-wrapper': {
+        '& .datepicker': {
+          '& .MuiPickersInputBase-root': {
+            '& fieldset': {
+              border: 'none',
+              borderBottom: '1px solid #D0D1D4',
+              borderRadius: 0,
+            },
+
+            '&:hover fieldset': {
+              borderColor: '#959595',
+            },
+
+            '&:focus-within > fieldset': {
+              borderColor: '#959595',
+            }
+          },
+
+          '& .ft-datepicker-error': {
+            color: '#D8201D',
+            fontSize: '13px',
+            fontWeight: 500,
+            marginTop: '4px',
+            paddingLeft: '8px'
+          },
+        }
+      },
+    },
+
+    '&.ft-datepicker-error-state > .ft-datepicker > .ft-datepicker-wrapper > .datepicker fieldset': {
+      borderColor: '#D8201D'
+    },
+  },
+
+  // DISABLED STATE
+  '& .ft-datepicker-container.ft-datepicker-disabled': {
+    '& .ft-datepicker': {
+      '& .ft-datepicker-wrapper': {
+        '& .datepicker': {
+          '& .MuiPickersInputBase-root': {
+            '& > fieldset': {
+              background: '#EAECF0',
+              borderColor: '#D0D1D4 !important'
+            },
+
+            '&:hover > fieldset': {
+              borderColor: '#D0D1D4 !important'
+            }
+          }
+        }
+      }
+    }
+  }
 }))
 
 
@@ -143,6 +205,7 @@ interface IDatePickerProps extends DateTimePickerProps {
   name?: string;
   label?: string;
   labelPosition?: 'top' | 'left';
+  variant?: 'outlined' | 'standard';
   placeholder?: string;
   meta?: { touched?: boolean, error?: string };
   onBlur?: () => void;
@@ -160,6 +223,8 @@ const DatePicker = (props: IDatePickerProps) => {
     meta,
     isClearable,
     onClearField,
+    variant = 'outlined',
+    disabled,
     ...rest
   } = props;
 
@@ -176,7 +241,9 @@ const DatePicker = (props: IDatePickerProps) => {
           className={
             'ft-datepicker-container' +
             ` label-pos-${labelPosition}` +
-            ` ${hasError ? ' ft-datepicker-error-state' : ''}`
+            ` variant-${variant}` +
+            ` ${hasError ? ' ft-datepicker-error-state' : ''}` +
+            ` ${disabled ? ' ft-datepicker-disabled' : ''}`
           }
         >
           {label && (
@@ -193,6 +260,7 @@ const DatePicker = (props: IDatePickerProps) => {
                 {...rest}
                 className='datepicker'
                 name={name}
+                disabled={disabled}
                 viewRenderers={{
                   hours: renderTimeViewClock,
                   minutes: renderTimeViewClock
@@ -207,7 +275,10 @@ const DatePicker = (props: IDatePickerProps) => {
                   textField: {
                     placeholder: placeholder,
                     spellCheck: false,
-                    onBlur: rest?.onBlur
+                    onBlur: !disabled ? rest?.onBlur : () => null
+                  },
+                  openPickerIcon: {
+                    style: { zIndex: 2 }
                   }
                 }}
               />

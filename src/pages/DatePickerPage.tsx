@@ -1,13 +1,9 @@
 import React from 'react';
 import DatePicker from '../components/DatePicker';
-import { format, isValid } from 'date-fns';
+import { isValid } from 'date-fns';
 
 const DatePickerPage = () => {
   const [value, setValue] = React.useState<Date | null>(null);
-
-  console.log('value', value)
-  console.log('formattedValue', value ? format(value, 'dd/MM/yyyy HH:mm:ss') : null)
-
   const [touched, setTouched] = React.useState(false);
   const [error, setError] = React.useState<string | undefined>();
 
@@ -23,7 +19,6 @@ const DatePickerPage = () => {
 
   const handleChange = (date: Date | null) => {
     setValue(date);
-
     if (touched) {
       setError(validate(date));
     }
@@ -41,7 +36,6 @@ const DatePickerPage = () => {
       <div className='section-container'>
         <DatePicker
           label='label'
-          labelPosition='left'
           id='date-picker'
           onChange={handleChange}
           value={value}
@@ -58,6 +52,16 @@ const DatePickerPage = () => {
           labelPosition='left'
           id='date-picker1'
           views={['year']}
+        />
+      </div>
+
+      <div className='section-container'>
+        <DatePicker
+          label='label'
+          labelPosition='left'
+          id='date-picker2'
+          variant='standard'
+          disabled
         />
       </div>
     </div>
