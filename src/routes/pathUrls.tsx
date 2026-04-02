@@ -7,6 +7,7 @@ import StepPage from "../pages/StepPage";
 import TabsPage from "../pages/TabsPage";
 import TablePage from "../pages/TablePage";
 import DatePickerPage from "../pages/DatePickerPage";
+import TimePickerPage from "../pages/TimePickerPage";
 
 export const routes = [
   {
@@ -44,5 +45,9 @@ export const routes = [
   {
     path: '/datepicker',
     element: <DatePickerPage />
+  },
+  {
+    path: '/timepicker',
+    element: <TimePickerPage />
   }
 ]
