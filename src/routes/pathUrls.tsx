@@ -8,6 +8,7 @@ import TabsPage from "../pages/TabsPage";
 import TablePage from "../pages/TablePage";
 import DatePickerPage from "../pages/DatePickerPage";
 import TimePickerPage from "../pages/TimePickerPage";
+import HelperTextPage from "../pages/HelperTextPage";
 
 export const routes = [
   {
@@ -49,5 +50,9 @@ export const routes = [
   {
     path: '/timepicker',
     element: <TimePickerPage />
+  },
+  {
+    path: '/helpertext',
+    element: <HelperTextPage />
   }
 ]
